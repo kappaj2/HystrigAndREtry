@@ -4,20 +4,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import za.co.ajk.springretry.retryclient.services.ShakyBusinessService;
+import za.co.ajk.springretry.retryclient.services.ShakyBusinessServiceImpl;
 
 @RestController
 public class ShakyRestController {
  
-    private final ShakyBusinessService shakyBusinessService;
+    private final ShakyBusinessServiceImpl shakyBusinessService;
     
     @Autowired
-    public ShakyRestController(ShakyBusinessService shakyBusinessService) {
+    public ShakyRestController(ShakyBusinessServiceImpl shakyBusinessService) {
         this.shakyBusinessService = shakyBusinessService;
     }
     
     @GetMapping("/boom")
     public double boom() throws Exception{
-        return shakyBusinessService.deriveNumber();
+        int offset = 10; // not used at the moment
+        return shakyBusinessService.deriveNumber(offset);
     }
 }
