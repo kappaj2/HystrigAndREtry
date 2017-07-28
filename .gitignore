@@ -1,0 +1,10 @@
+.gradle
+.idea
+**/build
+*.iml
+*.ipr
+*.iws
+*.ids
+**/dataimport.properties
+**/.settings
+
